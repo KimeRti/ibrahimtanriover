@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Halil İbrahim Tanrıöver</title>
+    <link rel="shortcut icon" href="images/logo.ico ">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+
+        body{
+            min-height: 100vh;
+        }
+        .images{
+            width: 90%;
+            display: grid;
+            top:2%;
+            left:5%;
+            grid-template-columns: repeat(auto-fit,300px);
+            gap:10px;
+        }
+        .images img{
+            height: 300px;
+            width: 300px;
+            object-fit: cover;
+        }
+        @media(max-width:700px)
+        {
+            .images{
+                grid-template-columns: repeat(1,auto);
+            }
+            .images img{
+                width: 90vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- headar section start -->
+     {% include '_partials/_navbar.html' %}
+    <!-- headar section end -->
+
+    <!-- home section start -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Halil İbrahim Tanrıöver</h3>
+        <P>Hak-İş Konfederasyonu ve Hizmet-İş Sendikası Gaziantep İl Başkanı</P>
+        <!-- <a href="#menu" class="btn">Ürünlere Gözat</a> -->
+        </div>
+    </section>
+    <!-- home section end -->
+
+    <!-- about section start -->
+    <section class="about" id="about">
+        <h1 class="heading">Biyografi</h1>
+        <div class="row">
+            <div class="image">
+                <img src="{% static 'images/hakkimizda.jpg' %}" alt="about">
+            </div>
+            <div class="content">
+                <h3>Lorem ipsum dolor sit.</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit libero
+                     ratione laborum rerum provident omnis praesentium quis eos, ipsam, ut veniam nesciunt veritatis quod est aperiam nemo, modi rem 
+                     adipisci assumenda id saepe molestias! Repudiandae laborum praesentium illum. Possimus, voluptas.</p>
+            </div>
+        </div>
+    </section>
+    <!-- about section end -->
+
+    <!-- galeri section start -->
+    <section class="menu" id="galeri">
+        <h1 class="heading">Foto Galeri</h1>
+        <div class="images">
+            {% for photo in image %}
+                <img src="{{ photo.image.url }}">
+            {% endfor %}
+        </div>
+    </section>
+    <!-- galeri section end -->
+
+    <!-- contact section start -->
+    <section class="contact" id="contact">
+        <h1 class="heading">İletişim</h1>
+        <div class="row">
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.71079623682!2d28.914534451235774!3d41.031582725837275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caba67c8bb214f%3A0xb575d5a22257d975!2zRGVyeWEgw5ZyZ8O8IE1ha2luYSDEsMSfbmVsZXJpIHZlIEFrc2FtxLEgU2FuLnZlIFRpYy5MdGQuxZ50aS4!5e0!3m2!1str!2str!4v1668102962373!5m2!1str!2str" 
+             loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <form>
+                <h3>Bize Ulaşın</h3>
+                <div class="inputBox">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="İsim"/>
+                </div>
+                <div class="inputBox">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="E-mail"/>
+                </div>
+                <div class="inputBox">
+                    <i class="fas fa-phone"></i>
+                    <input type="number" placeholder="212-000-00-00"/>
+                </div>
+                <input type="submit" class="btn" value="Gönder"/>
+            </form>
+        </div>
+    </section>
+    <!-- contact section end -->
+
+    <!-- footer section start -->
+        <section class="footer">
+             <div class="search">
+                <input type="text" class="search" placeholder="Ara">
+                <button class="btn btn-primary">Ara</button>
+            </div> 
+            <div class="share">
+                <a href="#" class="fab fa-facebook"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+                <a href="#" class="fab fa-pinterest"></a>
+            </div>
+            <div class="links">
+                <a href="#home" class="active">Anasayfa</a>
+                <a href="#menu" class="">Ürünler</a>
+                <a href="#about" class="">Hakkımızda</a>
+                <a href="#contact" class="">İletişim</a>-
+            </div>
+
+            <div class="credit">
+                Bu site <span>Ahmet Özçivit</span> tarafından yapılmıştır | Tüm hakları saklıdır
+            </div>
+        </section>
+    <!-- footer section end -->
+    
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
